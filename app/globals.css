@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Updated color palette for B1T1 Coffee brand */
+:root {
+  --background: #fcfce4; /* Soft cream */
+  --foreground: #3d2f1f; /* Dark brown for text */
+  --card: #ffffff; /* White */
+  --card-foreground: #3d2f1f;
+  --popover: #ffffff;
+  --popover-foreground: #3d2f1f;
+  --primary: #c5a969; /* Warm gold */
+  --primary-foreground: #3d2f1f;
+  --secondary: #d6de9b; /* Sage green */
+  --secondary-foreground: #3d2f1f;
+  --muted: #f5f5e8;
+  --muted-foreground: #6b5d4f;
+  --accent: #c5a969;
+  --accent-foreground: #3d2f1f;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #e8e6d8;
+  --input: #e8e6d8;
+  --ring: #c5a969;
+  --chart-1: #c5a969;
+  --chart-2: #d6de9b;
+  --chart-3: #8b7355;
+  --chart-4: #a8c686;
+  --chart-5: #d4b896;
+  --radius: 0.75rem;
+  --sidebar: #fcfce4;
+  --sidebar-foreground: #3d2f1f;
+  --sidebar-primary: #c5a969;
+  --sidebar-primary-foreground: #3d2f1f;
+  --sidebar-accent: #d6de9b;
+  --sidebar-accent-foreground: #3d2f1f;
+  --sidebar-border: #e8e6d8;
+  --sidebar-ring: #c5a969;
+}
+
+.dark {
+  --background: #2a2318;
+  --foreground: #fcfce4;
+  --card: #3d2f1f;
+  --card-foreground: #fcfce4;
+  --popover: #3d2f1f;
+  --popover-foreground: #fcfce4;
+  --primary: #c5a969;
+  --primary-foreground: #2a2318;
+  --secondary: #d6de9b;
+  --secondary-foreground: #2a2318;
+  --muted: #4a3a28;
+  --muted-foreground: #c4b5a0;
+  --accent: #c5a969;
+  --accent-foreground: #fcfce4;
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #4a3a28;
+  --input: #4a3a28;
+  --ring: #c5a969;
+  --chart-1: #c5a969;
+  --chart-2: #d6de9b;
+  --chart-3: #8b7355;
+  --chart-4: #a8c686;
+  --chart-5: #d4b896;
+  --radius: 0.75rem;
+  --sidebar: #2a2318;
+  --sidebar-foreground: #fcfce4;
+  --sidebar-primary: #c5a969;
+  --sidebar-primary-foreground: #fcfce4;
+  --sidebar-accent: #d6de9b;
+  --sidebar-accent-foreground: #fcfce4;
+  --sidebar-border: #4a3a28;
+  --sidebar-ring: #c5a969;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Default cursor - Coffee bean */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><ellipse cx="16" cy="16" rx="7" ry="10" fill="%233d2f1f" stroke="%23c5a969" stroke-width="1.5"/><path d="M16 8 Q13 16 16 24 Q19 16 16 8" fill="%236b5d4f" opacity="0.4"/><path d="M16 10 C14.5 14 14.5 18 16 22" fill="none" stroke="%23c5a969" stroke-width="1.5"/></svg>'),
+      auto;
+  }
+  button,
+  a,
+  [role="button"] {
+    /* Hover cursor - Steaming coffee cup */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M9 14h10v9c0 1.5-1 3-3 3h-4c-2 0-3-1.5-3-3V14z" fill="%236F4E37" stroke="%233d2f1f" stroke-width="1.5"/><rect x="8" y="12" width="12" height="2.5" rx="1" fill="%23c5a969"/><ellipse cx="14" cy="13" rx="5" ry="1.5" fill="%233d2f1f" opacity="0.2"/><path d="M19 16h1.5c1.2 0 2.5 0.8 2.5 2s-1.3 2-2.5 2H19" fill="none" stroke="%236F4E37" stroke-width="1.5"/><path d="M11 7 Q11 9 12 9" fill="none" stroke="%23c5a969" stroke-width="1.2" opacity="0.8"/><path d="M14 6 Q14 8 15 8" fill="none" stroke="%23c5a969" stroke-width="1.2" opacity="0.8"/><path d="M17 7 Q17 9 18 9" fill="none" stroke="%23c5a969" stroke-width="1.2" opacity="0.8"/></svg>'),
+      pointer;
+  }
+
+  .cursor-pointer-group {
+    /* Interactive cursor - Steaming coffee cup */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M9 14h10v9c0 1.5-1 3-3 3h-4c-2 0-3-1.5-3-3V14z" fill="%236F4E37" stroke="%233d2f1f" stroke-width="1.5"/><rect x="8" y="12" width="12" height="2.5" rx="1" fill="%23c5a969"/><ellipse cx="14" cy="13" rx="5" ry="1.5" fill="%233d2f1f" opacity="0.2"/><path d="M19 16h1.5c1.2 0 2.5 0.8 2.5 2s-1.3 2-2.5 2H19" fill="none" stroke="%236F4E37" stroke-width="1.5"/><path d="M11 7 Q11 9 12 9" fill="none" stroke="%23c5a969" stroke-width="1.2" opacity="0.8"/><path d="M14 6 Q14 8 15 8" fill="none" stroke="%23c5a969" stroke-width="1.2" opacity="0.8"/><path d="M17 7 Q17 9 18 9" fill="none" stroke="%23c5a969" stroke-width="1.2" opacity="0.8"/></svg>'),
+      pointer;
+  }
+}
+
+/* Added smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
