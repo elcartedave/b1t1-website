@@ -94,7 +94,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       // Simple query for all operating branches to avoid index issues
       const q = query(
         collection(db, "branches1"),
-        where("isOperating", "==", true)
+        where("status", "==", "Operating")
       );
 
       const unsubscribe = onSnapshot(
@@ -184,7 +184,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
     const q = query(
       collection(db, "branches1"),
-      where("isOperating", "==", true)
+      where("status", "==", "Operating")
     );
     const unsubscribe = onSnapshot(
       q,
