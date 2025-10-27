@@ -9,19 +9,22 @@ export default function AboutPage() {
     {
       title: "Quality First",
       description:
-        "We source the finest beans from sustainable farms around the world.",
+        "We source only the finest beans from sustainable farms around the globe — and we keep high standards in brewing, service and freshness.",
     },
     {
       title: "Made with Love",
-      description: "Every cup is crafted with passion and attention to detail.",
+      description:
+        "Every cup is crafted with care. From barista to hand-over, we aim to deliver warmth, passion and attention to detail in each serving.",
     },
     {
       title: "Community Driven",
-      description: "Building connections one coffee at a time.",
+      description:
+        "We believe in building more than coffee shops. We build connections, support local suppliers, and create shared moments — one cup at a time.",
     },
     {
-      title: "Award Winning",
-      description: "Recognized for excellence in coffee craftsmanship.",
+      title: "Smart Innovation",
+      description:
+        "Recognised for our forward-thinking approach to coffee and franchising, we combine excellence in craftsmanship with smart, value-driven innovation.",
     },
   ];
 
@@ -42,8 +45,8 @@ export default function AboutPage() {
               Our Story
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              B1T1 Takeaway Coffee was born from a simple idea: great coffee
-              should be accessible to everyone, everywhere.
+              Born from a simple idea: great coffee should be accessible to
+              everyone, everywhere.
             </p>
           </motion.div>
 
@@ -62,19 +65,25 @@ export default function AboutPage() {
             </div>
             <div className="space-y-6">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground font-[family-name:var(--font-playfair)]">
-                Crafting Excellence Since Day One
+                Where Every Cup Begins With Freshness
               </h2>
               <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                What started as a small café has grown into a beloved community
-                hub. We believe in the power of a perfectly brewed cup to
-                brighten someone's day, spark conversations, and create lasting
-                memories.
+                What began as a bold vision in the Philippines has grown into a
+                movement. At B1T1, we believe that every cup should deliver
+                flavour, freshness and value — no compromise. From day one, we
+                set out to disrupt the industry norm: offering premium-inspired
+                brews at an unbeatable value, without sacrificing excellence.
               </p>
               <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                Our commitment to quality extends beyond our coffee. We partner
-                with local suppliers, support sustainable farming practices, and
-                invest in our community because we believe great coffee starts
-                with great relationships.
+                We partner with trusted suppliers, invest in our communities,
+                and believe in building relationships around every cup. Because
+                at B1T1, it’s more than coffee — it’s connection, conversation
+                and daily joy.
+              </p>
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                Join us in this journey: where every cup begins with freshness,
+                and every sip reflects our commitment to quality, affordability,
+                and shared moments.
               </p>
             </div>
           </motion.div>

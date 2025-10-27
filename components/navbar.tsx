@@ -56,9 +56,11 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Download App
-            </Button>
+            <Link href="/coming-soon">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Download App
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -89,9 +91,11 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full mt-2">
-                Download App
-              </Button>
+              <Link href="/coming-soon">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full mt-2">
+                  Download App
+                </Button>
+              </Link>
             </div>
           </div>
         )}

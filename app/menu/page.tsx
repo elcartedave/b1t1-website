@@ -17,7 +17,6 @@ export default function MenuPage() {
     { id: "frappe", label: "Frappe" },
     { id: "fruit tea", label: "Fruit Tea" },
     { id: "donuts", label: "Mini Donuts" },
-    { id: "biscoff", label: "Biscuits" },
     { id: "waffles", label: "Belgian Waffle" },
   ];
 
