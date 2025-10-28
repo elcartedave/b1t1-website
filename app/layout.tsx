@@ -20,19 +20,6 @@ const inter = Inter({
   display: "swap",
 });
 
-// export const metadata: Metadata = {
-//   title: "B1T1 Takeaway Coffee | Premium Coffee Experience",
-//   description:
-//     "Experience premium coffee culture with B1T1. Download our app for exclusive rewards, find your nearest café, and join our community.",
-//   keywords: "B1T1, coffee, takeaway coffee, café, coffee app, premium coffee",
-//   openGraph: {
-//     title: "B1T1 Takeaway Coffee",
-//     description: "Experience premium coffee culture with B1T1",
-//     type: "website",
-//   },
-//   generator: "v0.app",
-// };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,6 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+      </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <StoreProvider>
           <GlobalParallaxBackground />
