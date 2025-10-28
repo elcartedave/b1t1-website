@@ -19,23 +19,26 @@ export function FeaturedProducts() {
   const products = [
     {
       id: 1,
-      name: "Iced Latte",
-      price: "$30.00",
-      image: "/products/Group 3.png",
+      name: "Latte",
+      soloPrice: 78,
+      b1t1Price: 145,
+      image: "/32.png",
       color: "bg-[#D4A574]",
     },
     {
       id: 2,
       name: "Dirty Matcha",
-      price: "$40.00",
-      image: "/products/Group 4.png",
+      soloPrice: 105,
+      b1t1Price: 195,
+      image: "/37.png",
       color: "bg-[#C5A969]",
     },
     {
       id: 3,
-      name: "Iced Americano",
-      price: "$35.00",
-      image: "/products/Group 6.png",
+      name: "Americano",
+      soloPrice: 48,
+      b1t1Price: 88,
+      image: "/40.png",
       color: "bg-[#8B7355]",
     },
   ];
@@ -99,8 +102,8 @@ export function FeaturedProducts() {
                 <h3 className="text-xl font-bold text-foreground mb-2 font-[family-name:var(--font-playfair)]">
                   {product.name}
                 </h3>
-                <p className="text-2xl font-bold text-primary">
-                  {product.price}
+                <p className="text-lg font-bold text-primary">
+                  Solo: ₱{product.soloPrice} | B1T1: ₱{product.b1t1Price}
                 </p>
               </div>
             </motion.div>

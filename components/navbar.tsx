@@ -23,7 +23,7 @@ export function Navbar() {
     { href: "/menu", label: "Menu" },
     { href: "/stores", label: "Stores" },
     { href: "/soon-to-open", label: "Soon to Open" },
-    { href: "/contact", label: "Contact" },
+    { href: "/contact", label: "Franchise Now" },
   ];
 
   return (
@@ -41,7 +41,7 @@ export function Navbar() {
             <img
               src="/logo.png"
               alt="B1T1 Coffee Logo"
-              className="h-7 md:h-8 w-auto object-contain"
+              className="h-6 md:h-7 w-auto object-contain"
             />
           </Link>
 

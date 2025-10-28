@@ -18,22 +18,22 @@ export function HeroSection() {
     {
       label: "COFFEE",
       color: "bg-[#c5a969]", // Primary warm gold
-      image: "/vanilla-latte-with-latte-art.jpg",
+      image: "/51.png",
     },
     {
       label: "FRAPPE",
       color: "bg-[#d6de9b]", // Secondary sage green
-      image: "/strawberry-smoothie-with-fresh-berries.jpg",
+      image: "/42.png",
     },
     {
       label: "TEA",
       color: "bg-[#8b7355]", // Chart-3 brown
-      image: "/green-matcha-latte-in-ceramic-cup.jpg",
+      image: "/11.png",
     },
     {
-      label: "DESSERTS",
+      label: "PASTRIES",
       color: "bg-[#a8c686]", // Chart-4 green
-      image: "/blueberry-muffin-with-fresh-blueberries.jpg",
+      image: "/63.png",
     },
   ];
 
@@ -107,10 +107,10 @@ export function HeroSection() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="relative z-10 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[340px] xl:w-[380px]"
+                className="relative z-10 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[440px]"
               >
                 <img
-                  src="/products/CB.png"
+                  src="/16.png"
                   alt="Signature Chocolate Drink"
                   className="w-full drop-shadow-2xl"
                 />

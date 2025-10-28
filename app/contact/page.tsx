@@ -1,13 +1,85 @@
-"use client"
+"use client";
 
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { toast } from "@/hooks/use-toast";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await addDoc(collection(db, "inquiries"), {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        timestamp: Timestamp.now(),
+        status: "pending",
+      });
+
+      // Show success confirmation
+      setShowSuccess(true);
+      toast({
+        title: "Message sent successfully! ✅",
+        description: "We'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      // Show error confirmation
+      setShowError(true);
+      toast({
+        title: "Failed to send message ❌",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+
+      // Auto-hide error message after 5 seconds
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -39,26 +111,141 @@ export default function ContactPage() {
               <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6 font-[family-name:var(--font-playfair)]">
                 Send us a message
               </h2>
-              <form className="space-y-6">
+
+              {/* Success Message */}
+              {showSuccess && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mb-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4"
+                >
+                  <div className="flex items-start gap-3">
+                    <svg
+                      className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-green-800 dark:text-green-300 mb-1">
+                        Message sent successfully!
+                      </h3>
+                      <p className="text-sm text-green-700 dark:text-green-400">
+                        Thank you for contacting us. We'll get back to you
+                        within 24-48 hours.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {showError && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mb-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4"
+                >
+                  <div className="flex items-start gap-3">
+                    <svg
+                      className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-red-800 dark:text-red-300 mb-1">
+                        Failed to send message
+                      </h3>
+                      <p className="text-sm text-red-700 dark:text-red-400">
+                        Please try again later. If the problem persists, contact
+                        us directly at franchise@b1t1takeawaycoffee.com
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     Name
                   </label>
-                  <Input id="name" placeholder="Your name" className="w-full" />
+                  <Input
+                    id="name"
+                    placeholder="Your name"
+                    className="w-full"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    required
+                  />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     Email
                   </label>
-                  <Input id="email" type="email" placeholder="your@email.com" className="w-full" />
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    className="w-full"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    required
+                  />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     Message
                   </label>
-                  <Textarea id="message" placeholder="Your message..." rows={5} className="w-full" />
+                  <Textarea
+                    id="message"
+                    placeholder="Your message..."
+                    rows={5}
+                    className="w-full"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    required
+                  />
                 </div>
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Send Message</Button>
+                <Button
+                  type="submit"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
               </form>
             </motion.div>
 
@@ -74,31 +261,30 @@ export default function ContactPage() {
                 </h2>
                 <div className="space-y-6">
                   <div className="bg-card rounded-2xl p-6 shadow-lg">
-                    <h3 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wide">Email</h3>
-                    <p className="text-muted-foreground">hello@b1t1coffee.com</p>
+                    <h3 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wide">
+                      Email
+                    </h3>
+                    <p className="text-muted-foreground">
+                      franchise@b1t1takeawaycoffee.com
+                    </p>
                   </div>
                   <div className="bg-card rounded-2xl p-6 shadow-lg">
-                    <h3 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wide">Phone</h3>
+                    <h3 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wide">
+                      Whatsapp
+                    </h3>
                     <p className="text-muted-foreground">+1 (555) 123-4567</p>
                   </div>
                   <div className="bg-card rounded-2xl p-6 shadow-lg">
-                    <h3 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wide">Headquarters</h3>
+                    <h3 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wide">
+                      Headquarters
+                    </h3>
                     <p className="text-muted-foreground">
-                      123 Main Street
+                      Unit 1216 Park Triangle Corporate Plaza
                       <br />
-                      City Center, State 12345
+                      32nd St. corner 11th Ave. Bonifacio Global City, Taguig
+                      City, Metro Manila, Philippines
                     </p>
                   </div>
-                </div>
-              </div>
-
-              <div className="bg-secondary/20 rounded-3xl p-6 md:p-8">
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-4 font-[family-name:var(--font-playfair)]">
-                  Business Hours
-                </h3>
-                <div className="space-y-2 text-muted-foreground text-sm md:text-base">
-                  <p>Monday - Friday: 7:00 AM - 8:00 PM</p>
-                  <p>Saturday - Sunday: 8:00 AM - 9:00 PM</p>
                 </div>
               </div>
             </motion.div>
@@ -108,5 +294,5 @@ export default function ContactPage() {
 
       <Footer />
     </main>
-  )
+  );
 }
