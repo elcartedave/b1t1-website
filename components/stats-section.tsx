@@ -71,7 +71,7 @@ export function StatsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             className="text-center text-[#6d4c3d] text-sm sm:text-base md:text-lg mt-4 sm:mt-5 md:mt-6 leading-relaxed max-w-2xl mx-auto font-medium"
           >
             From our humble beginnings to becoming a beloved coffee destination
@@ -83,7 +83,7 @@ export function StatsSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             className="flex justify-center items-center gap-4 sm:gap-6 my-4 sm:my-5"
           >
             {/* Philippines Flag */}
