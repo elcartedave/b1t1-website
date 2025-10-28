@@ -35,19 +35,19 @@ export function StatsSection() {
 
   const stats = [
     {
-      value: operatingBranches.length,
+      value: 100,
       suffix: "+",
       label: "Operating Stores",
     },
     {
-      value: soonToOpenCount,
+      value: 100,
       suffix: "+",
       label: "Soon to Open",
     },
     {
       value: totalProducts,
       suffix: "+",
-      label: "Menu",
+      label: "Products",
     },
   ];
 
@@ -72,18 +72,56 @@ export function StatsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center text-[#6d4c3d] text-sm sm:text-base md:text-lg mt-4 sm:mt-5 md:mt-6 mb-6 sm:mb-8 md:mb-10 lg:mb-12 leading-relaxed max-w-2xl mx-auto font-medium"
+            className="text-center text-[#6d4c3d] text-sm sm:text-base md:text-lg mt-4 sm:mt-5 md:mt-6 leading-relaxed max-w-2xl mx-auto font-medium"
           >
             From our humble beginnings to becoming a beloved coffee destination
-            across the Philippines.
+            across the world.
           </motion.p>
+
+          {/* Country Flags */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="flex justify-center items-center gap-4 sm:gap-6 my-4 sm:my-5"
+          >
+            {/* Philippines Flag */}
+            <img
+              src="/Flag_of_the_Philippines.svg"
+              alt="Philippines"
+              className="w-12 h-7 sm:w-14 sm:h-8 md:w-16 md:h-9 rounded-sm object-cover shadow-sm border border-gray-200 dark:border-gray-700"
+            />
+
+            {/* UAE Flag */}
+            <img
+              src="/Flag_of_the_United_Arab_Emirates.svg"
+              alt="UAE"
+              className="w-12 h-7 sm:w-14 sm:h-8 md:w-16 md:h-9 rounded-sm object-cover shadow-sm border border-gray-200 dark:border-gray-700"
+            />
+
+            {/* Vietnam Flag */}
+            <img
+              src="/Flag_of_Vietnam.svg"
+              alt="Vietnam"
+              className="w-12 h-7 sm:w-14 sm:h-8 md:w-16 md:h-9 rounded-sm object-cover shadow-sm border border-gray-200 dark:border-gray-700"
+            />
+
+            {/* Singapore Flag */}
+            <img
+              src="/Flag_of_Singapore.svg"
+              alt="Singapore"
+              className="w-12 h-6 sm:w-14 sm:h-7 md:w-16 md:h-8 rounded-sm object-cover shadow-sm border border-gray-200 dark:border-gray-700"
+            />
+          </motion.div>
+
           {/* Statistics Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full mb-6 sm:mb-8 md:mb-10"
+            className="w-full my-4 sm:my-6 md:my-8"
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
               {stats.map((stat, index) => (
