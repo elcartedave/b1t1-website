@@ -279,7 +279,7 @@ export default function ContactPage() {
                       Headquarters
                     </h3>
                     <p className="text-muted-foreground">
-                      Unit 1216 Park Triangle Corporate Plaza
+                      Park Triangle Corporate Plaza
                       <br />
                       32nd St. corner 11th Ave. Bonifacio Global City, Taguig
                       City, Metro Manila, Philippines
