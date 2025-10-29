@@ -74,18 +74,6 @@ export function HeroSection() {
                 About Us
               </Button>
             </div>
-
-            {/* Decorative heart line */}
-            <div className="mt-6 w-24 h-12 opacity-20 mx-auto lg:mx-0">
-              <svg viewBox="0 0 100 50" className="w-full h-full text-primary">
-                <path
-                  d="M 0 25 Q 25 0, 50 25 T 100 25"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
           </motion.div>
 
           {/* Right Content - Hero Image with Category Icons in Vertical Column */}
@@ -107,7 +95,7 @@ export function HeroSection() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="relative z-10 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[440px]"
+                className="relative z-10 w-[200px] sm:w-[280px] md:w-[360px] lg:w-[400px] xl:w-[440px]"
               >
                 <img
                   src="/16.png"
