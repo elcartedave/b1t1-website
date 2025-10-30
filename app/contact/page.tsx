@@ -45,6 +45,156 @@ export default function ContactPage() {
         status: "pending",
       });
 
+      await addDoc(collection(db, "franchise_inquiries"), {
+        to: formData.email,
+
+        message: {
+          html: `
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franchise Inquiry Email</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f4f4f4;">
+        <tr>
+            <td style="padding: 20px 0;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    
+                    <!-- Header with Logo -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #A0826D 0%, #C19A6B 100%); padding: 40px 30px; text-align: center;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="text-align: center; padding-bottom: 20px;">
+                                        <!-- Logo Placeholder -->
+                                        <div style="width: 120px; height: 120px; background: rgba(255, 215, 0, 0.2); border: 3px dashed #FFD700; border-radius: 10px; margin: 0 auto; display: inline-flex; align-items: center; justify-content: center;">
+                                            <span style="color: #FFD700; font-weight: 600; font-size: 14px;">[LOGO HERE]</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <h1 style="margin: 0 0 10px 0; color: #FFD700; font-size: 28px; letter-spacing: 1px;">Franchise Inquiry</h1>
+                                        <p style="margin: 0; color: #F4E7D7; font-size: 16px;">Thank you for your interest in our franchise opportunity</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Introduction -->
+                    <tr>
+                        <td style="padding: 30px 30px 20px 30px;">
+                            <p style="margin: 0 0 20px 0; color: #8B7355; font-size: 15px; line-height: 1.6;">
+                                Dear ${formData.name},
+                            </p>
+                            <p style="margin: 0 0 20px 0; color: #8B7355; font-size: 15px; line-height: 1.6;">
+                                We are delighted to receive your interest in our franchise opportunity. To better assist you and provide tailored information about our franchise program, please provide us with the following details:
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Information Request -->
+                    <tr>
+                        <td style="padding: 0 30px 30px 30px;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #FFF8E7; border-radius: 8px; padding: 25px; border: 2px solid #D4AF37;">
+                                <tr>
+                                    <td>
+                                        <h2 style="margin: 0 0 20px 0; color: #A0826D; font-size: 18px; border-bottom: 2px solid #FFD700; padding-bottom: 10px;">Required Information</h2>
+                                        
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="padding: 10px 0; color: #8B7355; font-size: 14px; font-weight: 600;">
+                                                    <span style="color: #D4A574;">•</span> Full Name:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px 0; color: #8B7355; font-size: 14px; font-weight: 600;">
+                                                    <span style="color: #D4A574;">•</span> Email Address:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px 0; color: #8B7355; font-size: 14px; font-weight: 600;">
+                                                    <span style="color: #D4A574;">•</span> Current Location:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px 0; color: #8B7355; font-size: 14px; font-weight: 600;">
+                                                    <span style="color: #D4A574;">•</span> Target Location:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px 0; color: #8B7355; font-size: 14px; font-weight: 600;">
+                                                    <span style="color: #D4A574;">•</span> Target Sign-Up Date:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px 0; color: #8B7355; font-size: 14px; font-weight: 600;">
+                                                    <span style="color: #D4A574;">•</span> Mobile Number:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px 0; color: #8B7355; font-size: 14px; font-weight: 600;">
+                                                    <span style="color: #D4A574;">•</span> How did you hear about us?
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px 0; color: #8B7355; font-size: 14px; font-weight: 600;">
+                                                    <span style="color: #D4A574;">•</span> Additional Message or Questions:
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Call to Action -->
+                    <tr>
+                        <td style="padding: 0 30px 30px 30px;">
+                            <p style="margin: 0 0 20px 0; color: #8B7355; font-size: 15px; line-height: 1.6;">
+                                Please reply to this email with the requested information at your earliest convenience. Our franchise development team will review your details and respond within 24-48 hours with comprehensive information about our franchise opportunities.
+                            </p>
+                            <p style="margin: 0; color: #8B7355; font-size: 15px; line-height: 1.6;">
+                                We look forward to potentially welcoming you to our franchise family.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #F5E6D3; padding: 25px 30px; text-align: center;">
+                            <p style="margin: 0 0 10px 0; color: #8B7355; font-size: 16px; font-weight: 600;">
+                                Best Regards,
+                            </p>
+                            <p style="margin: 0 0 15px 0; color: #A0826D; font-size: 14px;">
+                                Franchise Development Team
+                            </p>
+                            <div style="border-top: 2px solid #D4AF37; padding-top: 15px; margin-top: 15px;">
+                                <p style="margin: 0; color: #8B7355; font-size: 12px; line-height: 1.5;">
+                                    [Company Name] 
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+          `,
+          subject: "B1T1 Franchise Inquiry",
+          text: "Thank you for your interest in our franchise",
+        },
+        created_at: Timestamp.now(),
+        status: "pending",
+      });
+
       // Show success confirmation
       setShowSuccess(true);
       toast({

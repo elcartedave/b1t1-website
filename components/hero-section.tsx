@@ -2,12 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
+  const [imageUrl, setImageUrl] = useState<string>("/16.png");
+
+  useEffect(() => {
+    setImageUrl("/16.png");
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -19,21 +25,25 @@ export function HeroSection() {
       label: "COFFEE",
       color: "bg-[#c5a969]", // Primary warm gold
       image: "/51.png",
+      highlight: "/cat1.png",
     },
     {
       label: "FRAPPE",
       color: "bg-[#d6de9b]", // Secondary sage green
       image: "/42.png",
+      highlight: "/cat2.png",
     },
     {
       label: "TEA",
       color: "bg-[#8b7355]", // Chart-3 brown
       image: "/11.png",
+      highlight: "/cat3.png",
     },
     {
       label: "PASTRIES",
       color: "bg-[#a8c686]", // Chart-4 green
       image: "/63.png",
+      highlight: "/cat4.png",
     },
   ];
 
@@ -98,7 +108,7 @@ export function HeroSection() {
                 className="relative z-10 w-[200px] sm:w-[280px] md:w-[360px] lg:w-[400px] xl:w-[440px]"
               >
                 <img
-                  src="/16.png"
+                  src={imageUrl}
                   alt="Signature Chocolate Drink"
                   className="w-full drop-shadow-2xl"
                 />
@@ -122,7 +132,10 @@ export function HeroSection() {
                     <div className="flex flex-col items-center gap-3">
                       {/* Circular icon with image */}
                       <div
-                        className={`w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 lg:w-20 lg:h-20 rounded-full ${category.color} flex items-center justify-center shadow-lg transition-all duration-200 ease-out hover:shadow-xl overflow-hidden`}
+                        className={`w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 lg:w-20 lg:h-20 rounded-full ${category.color} flex items-center justify-center shadow-lg transition-all duration-200 ease-out overflow-hidden`}
+                        onMouseEnter={() => {
+                          setImageUrl(category.highlight);
+                        }}
                       >
                         <img
                           src={category.image}

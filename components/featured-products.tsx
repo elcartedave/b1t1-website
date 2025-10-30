@@ -46,7 +46,7 @@ export function FeaturedProducts() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative py-10 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Background now handled globally */}
 

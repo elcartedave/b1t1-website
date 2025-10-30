@@ -3,4 +3,5 @@ export interface NewsCarouselItem {
   imageURL: string;
   postUrl: string;
   caption: string;
+  subtitle: string;
 }

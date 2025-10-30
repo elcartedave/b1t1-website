@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 
 export function MenuSection() {
   const menuItems = [
@@ -39,7 +39,7 @@ export function MenuSection() {
       image: "/golden-buttery-croissant-on-plate.jpg",
       category: "Pastries",
     },
-  ]
+  ];
 
   return (
     <section id="menu" className="py-20 sm:py-32 bg-card">
@@ -53,8 +53,9 @@ export function MenuSection() {
             Crafted to Perfection
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
-            Explore our carefully curated selection of premium coffees, specialty drinks, and fresh pastries. Every item
-            is crafted with the finest ingredients.
+            Explore our carefully curated selection of premium coffees,
+            specialty drinks, and fresh pastries. Every item is crafted with the
+            finest ingredients.
           </p>
         </div>
 
@@ -83,7 +84,9 @@ export function MenuSection() {
                   <h3 className="text-xl font-semibold text-foreground mb-2 font-[family-name:var(--font-playfair)]">
                     {item.name}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -91,5 +94,5 @@ export function MenuSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
