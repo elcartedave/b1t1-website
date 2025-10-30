@@ -15,6 +15,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    contactNumber: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,6 +39,7 @@ export default function ContactPage() {
       await addDoc(collection(db, "inquiries"), {
         name: formData.name,
         email: formData.email,
+        contactNumber: formData.contactNumber,
         message: formData.message,
         timestamp: Timestamp.now(),
         status: "pending",
@@ -55,6 +57,7 @@ export default function ContactPage() {
         name: "",
         email: "",
         message: "",
+        contactNumber: "",
       });
 
       // Auto-hide success message after 5 seconds
@@ -222,6 +225,27 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label
+                    htmlFor="contactNumber"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
+                    Contact Number (Optional)
+                  </label>
+                  <Input
+                    id="contactNumber"
+                    type="tel"
+                    placeholder="09123456789"
+                    className="w-full"
+                    value={formData.contactNumber}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        contactNumber: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div>
+                  <label
                     htmlFor="message"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
@@ -268,12 +292,12 @@ export default function ContactPage() {
                       franchise@b1t1takeawaycoffee.com
                     </p>
                   </div>
-                  <div className="bg-card rounded-2xl p-6 shadow-lg">
+                  {/* <div className="bg-card rounded-2xl p-6 shadow-lg">
                     <h3 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wide">
                       Whatsapp
                     </h3>
                     <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                  </div>
+                  </div> */}
                   <div className="bg-card rounded-2xl p-6 shadow-lg">
                     <h3 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wide">
                       Headquarters
