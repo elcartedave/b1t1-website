@@ -228,7 +228,7 @@ export default function ContactPage() {
                     htmlFor="contactNumber"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Contact Number (Optional)
+                    Contact Number
                   </label>
                   <Input
                     id="contactNumber"
@@ -242,6 +242,7 @@ export default function ContactPage() {
                         contactNumber: e.target.value,
                       })
                     }
+                    required
                   />
                 </div>
                 <div>
