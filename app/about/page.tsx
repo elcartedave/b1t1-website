@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export default function AboutPage() {
   // Set page title
   useEffect(() => {
-    document.title = "About Us - B1T1 Coffee";
+    document.title = "About Us - B1T1 TakeawayCoffee";
   }, []);
   const values = [
     {

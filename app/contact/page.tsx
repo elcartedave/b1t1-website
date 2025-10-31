@@ -14,7 +14,7 @@ import { toast } from "@/hooks/use-toast";
 export default function ContactPage() {
   // Set page title
   useEffect(() => {
-    document.title = "Contact Us - B1T1 Coffee";
+    document.title = "Contact Us - B1T1 Takeaway Coffee";
   }, []);
 
   const [formData, setFormData] = useState({

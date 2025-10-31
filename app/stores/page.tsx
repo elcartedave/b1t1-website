@@ -21,7 +21,7 @@ import Image from "next/image";
 export default function StoresPage() {
   // Set page title
   useEffect(() => {
-    document.title = "Our Locations - B1T1 Coffee";
+    document.title = "Our Locations - B1T1 Takeaway Coffee";
   }, []);
 
   const searchParams = useSearchParams();
@@ -194,7 +194,7 @@ export default function StoresPage() {
               Our Locations
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Find your nearest B1T1 Coffee and visit us today
+              Find your nearest B1T1 Takeaway Coffee and visit us today
             </p>
           </motion.div>
 

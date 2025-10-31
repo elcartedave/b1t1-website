@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /secret
+Disallow: /link-preview
+
+# Host
+Host: https://b1t1takeawaycoffee.com
+
+# Sitemaps
+Sitemap: https://b1t1takeawaycoffee.com/sitemap.xml

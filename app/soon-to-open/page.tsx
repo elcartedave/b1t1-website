@@ -19,7 +19,7 @@ export default function SoonToOpenPage() {
 
   // Set page title
   useEffect(() => {
-    document.title = "Soon to Open - B1T1 Coffee";
+    document.title = "Soon to Open - B1T1 Takeaway Coffee";
   }, []);
 
   useEffect(() => {
@@ -80,7 +80,7 @@ export default function SoonToOpenPage() {
               Soon to Open
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Exciting new B1T1 Coffee locations coming soon near you
+              Exciting new B1T1 Takeaway Coffee locations coming soon near you
             </p>
           </motion.div>
 
@@ -192,8 +192,8 @@ export default function SoonToOpenPage() {
                     No upcoming locations yet
                   </h3>
                   <p className="text-muted-foreground">
-                    Check back soon for new B1T1 Coffee locations opening near
-                    you!
+                    Check back soon for new B1T1 Takeaway Coffee locations
+                    opening near you!
                   </p>
                 </div>
               )}

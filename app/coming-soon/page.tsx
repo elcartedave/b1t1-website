@@ -10,7 +10,7 @@ import { useEffect } from "react";
 export default function ComingSoonPage() {
   // Set page title
   useEffect(() => {
-    document.title = "Coming Soon - B1T1 Coffee";
+    document.title = "Coming Soon - B1T1 Takeaway Coffee";
   }, []);
 
   const router = useRouter();

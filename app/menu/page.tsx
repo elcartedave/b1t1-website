@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 export default function MenuPage() {
   // Set page title
   useEffect(() => {
-    document.title = "Our Menu - B1T1 Coffee";
+    document.title = "Our Menu - B1T1 Takeaway Coffee";
   }, []);
   const [activeCategory, setActiveCategory] = useState("all");
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
