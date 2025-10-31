@@ -19,6 +19,11 @@ import { Pagination } from "@/components/ui/pagination";
 import Image from "next/image";
 
 export default function StoresPage() {
+  // Set page title
+  useEffect(() => {
+    document.title = "Our Locations - B1T1 Coffee";
+  }, []);
+
   const searchParams = useSearchParams();
   const router = useRouter();
   const {

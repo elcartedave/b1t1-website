@@ -5,8 +5,14 @@ import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 export default function ComingSoonPage() {
+  // Set page title
+  useEffect(() => {
+    document.title = "Coming Soon - B1T1 Coffee";
+  }, []);
+
   const router = useRouter();
 
   return (

@@ -1,7 +1,13 @@
 "use client";
 import LinkPreview from "@/components/LinkPreview";
+import { useEffect } from "react";
 
 export default function LinkPreviewPage() {
+  // Set page title
+  useEffect(() => {
+    document.title = "Link Preview - B1T1 Coffee";
+  }, []);
+
   // Example Facebook post URL; replace with any public post URL
   const exampleUrl = "https://www.facebook.com/share/p/17SYeicJWb/";
 

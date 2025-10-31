@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function MenuPage() {
+  // Set page title
+  useEffect(() => {
+    document.title = "Our Menu - B1T1 Coffee";
+  }, []);
   const [activeCategory, setActiveCategory] = useState("all");
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
 

@@ -25,7 +25,7 @@ export function HeroSection() {
       label: "COFFEE",
       color: "bg-[#c5a969]", // Primary warm gold
       image: "/51.png",
-      highlight: "/cat1.png",
+      highlight: "/16.png",
     },
     {
       label: "FRAPPE",

@@ -3,8 +3,13 @@
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function AboutPage() {
+  // Set page title
+  useEffect(() => {
+    document.title = "About Us - B1T1 Coffee";
+  }, []);
   const values = [
     {
       title: "Quality First",

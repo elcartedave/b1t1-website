@@ -6,12 +6,17 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { toast } from "@/hooks/use-toast";
 
 export default function ContactPage() {
+  // Set page title
+  useEffect(() => {
+    document.title = "Contact Us - B1T1 Coffee";
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",

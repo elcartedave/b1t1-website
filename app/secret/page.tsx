@@ -1,8 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Download } from "lucide-react";
 
 const FranchiseeDataProcessor = () => {
+  // Set page title
+  useEffect(() => {
+    document.title = "Admin Tools - B1T1 Coffee";
+  }, []);
+
   const [processing, setProcessing] = useState(false);
 
   const processData = () => {

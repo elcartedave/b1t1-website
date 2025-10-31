@@ -17,6 +17,11 @@ export default function SoonToOpenPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
 
+  // Set page title
+  useEffect(() => {
+    document.title = "Soon to Open - B1T1 Coffee";
+  }, []);
+
   useEffect(() => {
     setIsLoading(true);
 
