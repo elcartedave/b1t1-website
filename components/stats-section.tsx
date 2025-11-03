@@ -40,7 +40,7 @@ export function StatsSection() {
       label: "Operating Stores",
     },
     {
-      value: 100,
+      value: 150,
       suffix: "+",
       label: "Soon to Open",
     },

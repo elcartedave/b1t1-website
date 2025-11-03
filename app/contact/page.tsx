@@ -74,15 +74,14 @@ export default function ContactPage() {
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tr>
                                     <td style="text-align: center; padding-bottom: 20px;">
-                                        <!-- Logo Placeholder -->
-                                        <div style="width: 120px; height: 120px; background: rgba(255, 215, 0, 0.2); border: 3px dashed #FFD700; border-radius: 10px; margin: 0 auto; display: inline-flex; align-items: center; justify-content: center;">
-                                            <span style="color: #FFD700; font-weight: 600; font-size: 14px;">[LOGO HERE]</span>
+                                        <div style="width: 120px; height: 120px; margin: 0 auto; display: inline-flex; align-items: center; justify-content: center;">
+                                            <span style="color: #fff; font-weight: 700; font-size: 16px; text-align: center;">B1T1 Takeaway Coffee</span>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: center;">
-                                        <h1 style="margin: 0 0 10px 0; color: #FFD700; font-size: 28px; letter-spacing: 1px;">Franchise Inquiry</h1>
+                                        <h1 style="margin: 0 0 10px 0; color: white; font-size: 28px; letter-spacing: 1px;">Franchise Inquiry</h1>
                                         <p style="margin: 0; color: #F4E7D7; font-size: 16px;">Thank you for your interest in our franchise opportunity</p>
                                     </td>
                                 </tr>
@@ -177,11 +176,11 @@ export default function ContactPage() {
                                 Best Regards,
                             </p>
                             <p style="margin: 0 0 15px 0; color: #A0826D; font-size: 14px;">
-                                Franchise Development Team
+                                Franchise Team
                             </p>
                             <div style="border-top: 2px solid #D4AF37; padding-top: 15px; margin-top: 15px;">
                                 <p style="margin: 0; color: #8B7355; font-size: 12px; line-height: 1.5;">
-                                    [Company Name] 
+                                    B1T1 Takeaway Coffee
                                 </p>
                             </div>
                         </td>
