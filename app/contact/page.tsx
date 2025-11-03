@@ -85,7 +85,7 @@ export default function ContactPage() {
 
                     <!-- Introduction -->
                     <tr>
-                        <td style="padding: 30px 30px 20px 30px;">
+                        <td style="padding: 0px 30px 20px 30px;">
                             <p style="margin: 0 0 20px 0; color: #8B7355; font-size: 15px; line-height: 1.6;">
                                 Dear ${formData.name},
                             </p>
