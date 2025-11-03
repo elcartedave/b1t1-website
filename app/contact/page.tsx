@@ -55,7 +55,7 @@ export default function ContactPage() {
 
         message: {
           html: `
-          <!DOCTYPE html>
+           <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,19 +70,13 @@ export default function ContactPage() {
                     
                     <!-- Header with Logo -->
                     <tr>
-                        <td style="background: linear-gradient(135deg, #A0826D 0%, #C19A6B 100%); padding: 40px 30px; text-align: center;">
+                        <td style="background: white; padding: 40px 30px; text-align: center;">
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                                <tr>
-                                    <td style="text-align: center; padding-bottom: 20px;">
-                                        <div style="width: 120px; height: 120px; margin: 0 auto; display: inline-flex; align-items: center; justify-content: center;">
-                                            <span style="color: #fff; font-weight: 700; font-size: 16px; text-align: center;">B1T1 Takeaway Coffee</span>
-                                        </div>
-                                    </td>
-                                </tr>
+                              
                                 <tr>
                                     <td style="text-align: center;">
-                                        <h1 style="margin: 0 0 10px 0; color: white; font-size: 28px; letter-spacing: 1px;">Franchise Inquiry</h1>
-                                        <p style="margin: 0; color: #F4E7D7; font-size: 16px;">Thank you for your interest in our franchise opportunity</p>
+                                        <h1 style="margin: 0 0 10px 0; color: #A0826D; font-size: 28px; letter-spacing: 1px;">B1T1 Takeaway Coffee Franchise Inquiry</h1>
+                                        <p style="margin: 0; color: #C19A6B; font-size: 16px;">Thank you for your interest in our franchise opportunity</p>
                                     </td>
                                 </tr>
                             </table>
