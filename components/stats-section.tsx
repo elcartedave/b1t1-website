@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useBranches } from "@/app/context/StoreContext";
 import { db } from "@/lib/firebase";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
+import Image from "next/image";
 
 export function StatsSection() {
   const { operatingBranches } = useBranches();
@@ -179,10 +180,14 @@ export function StatsSection() {
             className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl px-4 sm:px-0"
           >
             <div className="relative">
-              <img
-                src="/products/Layer 1.png"
+              <Image
+                priority
+                width={0}
+                height={0}
+                sizes="100vw"
+                src="kiosk copy.png"
                 alt="B1T1 Coffee Experience"
-                className="w-full h-auto object-cover rounded-lg"
+                className="w-full h-full object-cover rounded-lg"
               />
             </div>
           </motion.div>

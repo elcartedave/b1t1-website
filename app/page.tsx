@@ -5,6 +5,7 @@ import { FeaturedProducts } from "@/components/featured-products";
 import { AboutSection } from "@/components/about-section";
 import { Footer } from "@/components/footer";
 import type { Metadata } from "next";
+import CoffeeMenu from "@/components/coffee-favorites";
 
 export const metadata: Metadata = {
   title: "B1T1 Takeaway Coffee - Buy 1 Take 1 Coffee with Great Value",
@@ -19,6 +20,7 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <FeaturedProducts />
+
       <AboutSection />
       <Footer />
     </main>

@@ -286,6 +286,7 @@ export default function StoresPage() {
                         >
                           <div className="relative h-64 overflow-hidden">
                             <Image
+                              priority
                               src={
                                 store.imageURL ||
                                 store.imageUrl ||

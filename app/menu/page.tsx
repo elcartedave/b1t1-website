@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function MenuPage() {
   // Set page title
@@ -32,7 +33,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 48,
       b1t1Price: 88,
-      image: "/products/ICED AMERICANO.png",
+      image: "/products/CUP/AMERICANO.png",
       description: "Espresso with hot water",
     },
     {
@@ -41,7 +42,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 78,
       b1t1Price: 145,
-      image: "/products/ICED LATTE.png",
+      image: "/products/CUP/LATTE.png",
       description: "Espresso with steamed milk",
     },
     {
@@ -50,7 +51,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 78,
       b1t1Price: 145,
-      image: "/products/UBE LATTE.png",
+      image: "/products/CUP/UBE LATTE.png",
       description: "Espresso with ube syrup and steamed milk",
     },
     {
@@ -59,7 +60,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 88,
       b1t1Price: 160,
-      image: "/products/ICED BROWN SUGAR.png",
+      image: "/products/CUP/BROWN SUGAR LATTE.png",
       description: "Espresso with brown sugar syrup and steamed milk",
     },
     {
@@ -68,7 +69,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 88,
       b1t1Price: 160,
-      image: "/products/ICED DARK MOCHA.png",
+      image: "/products/CUP/DARK MOCHA.png",
       description: "Espresso with dark chocolate and steamed milk",
     },
     {
@@ -77,7 +78,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 95,
       b1t1Price: 175,
-      image: "/products/VIETNAMESE.png",
+      image: "/products/CUP/VIETNAMESE.png",
       description: "Espresso with Vietnamese coffee and steamed milk",
     },
     {
@@ -86,7 +87,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 98,
       b1t1Price: 185,
-      image: "/products/ICE SPANISH LATTE.png",
+      image: "/products/CUP/SPANISH LATTE.png",
       description: "Espresso with Spanish chocolate and steamed milk",
     },
     {
@@ -95,7 +96,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 98,
       b1t1Price: 165,
-      image: "/products/PRODUCT-PNG_0006_CARAMEL.png",
+      image: "/products/CUP/CARAMEL MACCHIATO.png",
       description: "Espresso with caramel drizzle and steamed milk",
     },
     {
@@ -104,7 +105,7 @@ export default function MenuPage() {
       category: "espresso",
       soloPrice: 98,
       b1t1Price: 185,
-      image: "/products/FERERRO LATTE.png",
+      image: "/products/CUP/FERRERO LATTE.png",
       description: "Espresso with Ferrero chocolate and steamed milk",
     },
 
@@ -115,7 +116,7 @@ export default function MenuPage() {
       category: "matcha",
       soloPrice: 90,
       b1t1Price: 185,
-      image: "/products/MATCHA LATTE.png",
+      image: "/products/CUP/MATCHA LATTE.png",
       description: "Matcha with steamed milk",
     },
     {
@@ -124,7 +125,7 @@ export default function MenuPage() {
       category: "matcha",
       soloPrice: 105,
       b1t1Price: 195,
-      image: "/products/DIRTY MATCHA.png",
+      image: "/products/CUP/DIRTY MATCHA.png",
       description: "Matcha with espresso and steamed milk",
     },
     {
@@ -133,7 +134,7 @@ export default function MenuPage() {
       category: "matcha",
       soloPrice: 105,
       b1t1Price: 195,
-      image: "/products/MATCHA FRAPPE.png",
+      image: "/products/CUP/MATCHA FRAPPE.png",
       description: "Matcha with ice and milk",
     },
 
@@ -144,7 +145,7 @@ export default function MenuPage() {
       category: "chocolate",
       soloPrice: 85,
       b1t1Price: 160,
-      image: "/products/CHOCOLATE.png",
+      image: "/products/CUP/CHOCOLATE.png",
       description: "Chocolate with steamed milk",
     },
     {
@@ -153,7 +154,7 @@ export default function MenuPage() {
       category: "chocolate",
       soloPrice: 95,
       b1t1Price: 175,
-      image: "/products/ICED WHITE CHOCOLATE.png",
+      image: "/products/CUP/WHITE CHOCOLATE.png",
       description: "White chocolate with hot water",
     },
 
@@ -164,7 +165,7 @@ export default function MenuPage() {
       category: "frappe",
       soloPrice: 98,
       b1t1Price: 188,
-      image: "/products/STRAWBERRY FRAPPE.png",
+      image: "/products/CUP/STRAWBERRY FRAPPE.png",
       description: "Strawberry with ice and milk",
     },
     {
@@ -173,7 +174,7 @@ export default function MenuPage() {
       category: "frappe",
       soloPrice: 98,
       b1t1Price: 188,
-      image: "/products/BLUEBERRY FRAPPE.png",
+      image: "/products/CUP/BLUEBERRY FRAPPE.png",
       description: "Blueberry with ice and milk",
     },
     {
@@ -182,7 +183,7 @@ export default function MenuPage() {
       category: "frappe",
       soloPrice: 98,
       b1t1Price: 188,
-      image: "/products/ESPRESSO FRAPPE.png",
+      image: "/products/CUP/ESPRESSO FRAPPE.png",
       description: "Espresso with ice and milk",
     },
     {
@@ -191,7 +192,7 @@ export default function MenuPage() {
       category: "frappe",
       soloPrice: 98,
       b1t1Price: 188,
-      image: "/products/CHOCOLATE CREAM FRAPPE.png",
+      image: "/products/CUP/CHOCOLATE FRAPPE.png",
       description: "Chocolate with ice and milk",
     },
     {
@@ -200,7 +201,7 @@ export default function MenuPage() {
       category: "frappe",
       soloPrice: 98,
       b1t1Price: 188,
-      image: "/products/DARK MOCHA FRAPPE.png",
+      image: "/products/CUP/DARK MOCHA.png",
       description: "Dark mocha with ice and milk",
     },
 
@@ -211,7 +212,7 @@ export default function MenuPage() {
       category: "fruit tea",
       soloPrice: 75,
       b1t1Price: 140,
-      image: "/products/LYCHEE.png",
+      image: "/products/CUP/LYCHEE.png",
       description: "Lychee with fruit tea",
     },
     {
@@ -220,7 +221,7 @@ export default function MenuPage() {
       category: "fruit tea",
       soloPrice: 75,
       b1t1Price: 140,
-      image: "/products/PASSION FRUIT.png",
+      image: "/products/CUP/PASSION FRUIT.png",
       description: "Passion fruit with fruit tea",
     },
     {
@@ -229,7 +230,7 @@ export default function MenuPage() {
       category: "fruit tea",
       soloPrice: 75,
       b1t1Price: 140,
-      image: "/products/BLUEBERRY FRUIT TEA.png",
+      image: "/products/CUP/BLUEBERRY.png",
       description: "Blueberry with fruit tea",
     },
     {
@@ -238,7 +239,7 @@ export default function MenuPage() {
       category: "fruit tea",
       soloPrice: 75,
       b1t1Price: 140,
-      image: "/products/strawberry.png",
+      image: "/products/CUP/STRAWBERRY.png",
       description: "Strawberry with fruit tea",
     },
     {
@@ -247,7 +248,7 @@ export default function MenuPage() {
       category: "fruit tea",
       soloPrice: 75,
       b1t1Price: 140,
-      image: "/products/GREEN FRUIT TEA.png",
+      image: "/products/CUP/GREEN APPLE.png",
       description: "Green with fruit tea",
     },
 
@@ -257,7 +258,7 @@ export default function MenuPage() {
       name: "Plain",
       category: "waffles",
       price: 58,
-      image: "/products/BELGIAN WAFFLE.png",
+      image: "/products/WAFFLE/PLAIN.png",
       description: "Plain waffles",
     },
     {
@@ -265,7 +266,7 @@ export default function MenuPage() {
       name: "Strawberry",
       category: "waffles",
       price: 68,
-      image: "/products/STRAWBERRY WAFFLE.png",
+      image: "/products/WAFFLE/STRAWBERRY (2).png",
       description: "Strawberry waffles",
     },
     {
@@ -273,7 +274,7 @@ export default function MenuPage() {
       name: "Matcha Cream",
       category: "waffles",
       price: 68,
-      image: "/products/MATCHA WAFFLE.png",
+      image: "/products/WAFFLE/MATCHA CREAM.png",
       description: "Matcha cream waffles",
     },
     {
@@ -281,7 +282,7 @@ export default function MenuPage() {
       name: "Caramel",
       category: "waffles",
       price: 78,
-      image: "/products/CARAMEL WAFFLE.png",
+      image: "/products/WAFFLE/CARAMEL.png",
       description: "Caramel waffles",
     },
     {
@@ -289,7 +290,7 @@ export default function MenuPage() {
       name: "Chocolate",
       category: "waffles",
       price: 80,
-      image: "/products/CHOCOLATE WAFFLE.png",
+      image: "/products/WAFFLE/CHOCOLATE (2).png",
       description: "Chocolate waffles",
     },
     {
@@ -297,7 +298,7 @@ export default function MenuPage() {
       name: "Peanut Butter",
       category: "waffles",
       price: 80,
-      image: "/products/PEANUT BUTTER WAFFLE.png",
+      image: "/products/WAFFLE/PEANUT BUTTER.png",
       description: "Peanut butter waffles",
     },
     {
@@ -305,7 +306,7 @@ export default function MenuPage() {
       name: "Cookies and Cream",
       category: "waffles",
       price: 88,
-      image: "/products/COOKIES AND CREAM WAFFLE.png",
+      image: "/products/WAFFLE/COOKIES & CREAM.png",
       description: "Cookies and cream waffles",
     },
     {
@@ -313,7 +314,7 @@ export default function MenuPage() {
       name: "Biscoff Cream",
       category: "waffles",
       price: 98,
-      image: "/products/BISCOFF WAFFLE.png",
+      image: "/products/WAFFLE/BISCOFF CREAM.png",
       description: "Biscoff cream waffles",
     },
     {
@@ -321,7 +322,7 @@ export default function MenuPage() {
       name: "S'mores",
       category: "waffles",
       price: 98,
-      image: "/products/S'SMORE WAFFLE.png",
+      image: "/products/WAFFLE/S_MORE.png",
       description: "S'mores waffles",
     },
 
@@ -331,7 +332,7 @@ export default function MenuPage() {
       name: "Almond Choco",
       category: "donuts",
       price: 198,
-      image: "/products/choco almonds.png",
+      image: "/products/DONUT/CHOCOLATE ALMOND.png",
       description: "Almond choco donuts - 1 Box (8pcs)",
     },
     {
@@ -339,7 +340,7 @@ export default function MenuPage() {
       name: "Milk Matcha",
       category: "donuts",
       price: 198,
-      image: "/products/matcha.png",
+      image: "/products/DONUT/MILKY MATCHA.png",
       description: "Milky matcha donuts - 1 Box (8pcs)",
     },
     {
@@ -347,7 +348,7 @@ export default function MenuPage() {
       name: "Strawberry",
       category: "donuts",
       price: 198,
-      image: "/products/strawberries.png",
+      image: "/products/DONUT/STRAWBERRY (3).png",
       description: "Strawberry donuts - 1 Box (8pcs)",
     },
   ];
@@ -420,14 +421,24 @@ export default function MenuPage() {
               >
                 <div className="relative">
                   {/* Circular background glow */}
-                  <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl scale-75 group-hover:scale-90 transition-transform duration-500" />
-
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: "#C59D62" }}
+                    className="rounded-full blur-2xl scale-75 group-hover:scale-90 transition-transform duration-500"
+                  />
                   {/* Circular product image */}
-                  <div className="relative bg-card rounded-full aspect-square overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300 p-8 flex items-center justify-center">
-                    <img
+                  <div
+                    className="relative rounded-full aspect-square overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300 p-8 flex items-center justify-center"
+                    style={{ background: "#C59D62" }}
+                  >
+                    <Image
+                      priority
+                      width={0}
+                      height={0}
+                      sizes="100vw"
                       src={item.image || "/placeholder.svg"}
                       alt={item.name}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                 </div>

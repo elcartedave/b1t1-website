@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -107,7 +108,11 @@ export function HeroSection() {
                 }}
                 className="relative z-10 w-[200px] sm:w-[280px] md:w-[360px] lg:w-[400px] xl:w-[440px]"
               >
-                <img
+                <Image
+                  priority
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   src={imageUrl}
                   alt="Signature Chocolate Drink"
                   className="w-full drop-shadow-2xl"
@@ -137,7 +142,11 @@ export function HeroSection() {
                           setImageUrl(category.highlight);
                         }}
                       >
-                        <img
+                        <Image
+                          priority
+                          width={0}
+                          height={0}
+                          sizes="100vw"
                           src={category.image}
                           alt={category.label}
                           className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-cover rounded-full"

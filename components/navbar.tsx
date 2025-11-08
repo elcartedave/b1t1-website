@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +39,11 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <img
+            <Image
+              priority
+              width={0}
+              height={0}
+              sizes="100vw"
               src="/logo.png"
               alt="B1T1 Coffee Logo"
               className="h-6 md:h-7 w-auto object-contain"

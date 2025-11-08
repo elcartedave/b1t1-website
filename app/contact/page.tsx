@@ -18,9 +18,11 @@ export default function ContactPage() {
   }, []);
 
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     contactNumber: "",
+    location: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,7 +32,14 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.message) {
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.contactNumber ||
+      !formData.location ||
+      !formData.message
+    ) {
       toast({
         title: "Please fill in all fields",
         variant: "destructive",
@@ -42,12 +51,13 @@ export default function ContactPage() {
 
     try {
       await addDoc(collection(db, "inquiries"), {
-        name: formData.name,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email,
+        location: formData.location,
         contactNumber: formData.contactNumber,
         message: formData.message,
         timestamp: Timestamp.now(),
-        status: "pending",
       });
 
       await addDoc(collection(db, "franchise_inquiries"), {
@@ -87,7 +97,7 @@ export default function ContactPage() {
                     <tr>
                         <td style="padding: 0px 30px 20px 30px;">
                             <p style="margin: 0 0 20px 0; color: #8B7355; font-size: 15px; line-height: 1.6;">
-                                Dear ${formData.name},
+                                Dear ${formData.firstName},
                             </p>
                             <p style="margin: 0 0 20px 0; color: #8B7355; font-size: 15px; line-height: 1.6;">
                                 We are delighted to receive your interest in our franchise opportunity. To better assist you and provide tailored information about our franchise program, please provide us with the following details:
@@ -202,8 +212,10 @@ export default function ContactPage() {
 
       // Reset form
       setFormData({
-        name: "",
+        firstName: "",
+        lastName: "",
         email: "",
+        location: "",
         message: "",
         contactNumber: "",
       });
@@ -334,23 +346,44 @@ export default function ContactPage() {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Your name"
-                    className="w-full"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    required
-                  />
+                <div className="flex gap-4">
+                  <div className="w-1/2">
+                    <label
+                      htmlFor="firstName"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      First Name
+                    </label>
+                    <Input
+                      id="firstName"
+                      placeholder="Your first name"
+                      className="w-full"
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="w-1/2">
+                    <label
+                      htmlFor="lastName"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      Last Name
+                    </label>
+
+                    <Input
+                      id="lastName"
+                      placeholder="Your last name"
+                      className="w-full"
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
                 </div>
                 <div>
                   <label
@@ -389,6 +422,24 @@ export default function ContactPage() {
                         ...formData,
                         contactNumber: e.target.value,
                       })
+                    }
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="location"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
+                    Location
+                  </label>
+                  <Input
+                    id="location"
+                    placeholder="Your location"
+                    className="w-full"
+                    value={formData.location}
+                    onChange={(e) =>
+                      setFormData({ ...formData, location: e.target.value })
                     }
                     required
                   />

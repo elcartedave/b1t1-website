@@ -122,6 +122,7 @@ export default function SoonToOpenPage() {
                       >
                         <div className="relative h-64 overflow-hidden">
                           <Image
+                            priority
                             src={"/default.png"}
                             alt={store.address}
                             width={0}
