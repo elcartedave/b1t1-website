@@ -201,7 +201,7 @@ export default function MenuPage() {
       category: "frappe",
       soloPrice: 98,
       b1t1Price: 188,
-      image: "/products/CUP/DARK MOCHA.png",
+      image: "/products/CUP/DARK MOCHA FRAPPE.png",
       description: "Dark mocha with ice and milk",
     },
 
