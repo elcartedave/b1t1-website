@@ -32,11 +32,13 @@ interface BranchContextType {
     region: string;
     province: string;
     municipality: string;
+    show24HoursOnly: boolean;
   };
   setFilters: (filters: {
     region: string;
     province: string;
     municipality: string;
+    show24HoursOnly: boolean;
   }) => void;
   setCurrentPage: (page: number) => void;
   refreshBranches: () => void;
@@ -60,6 +62,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     region: "",
     province: "",
     municipality: "",
+    show24HoursOnly: false,
   });
 
   const [isFiltering, setIsFiltering] = useState(false);
@@ -120,6 +123,12 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
           if (filters.municipality?.trim()) {
             allBranches = allBranches.filter(
               (branch) => branch.municipality === filters.municipality
+            );
+          }
+
+          if (filters.show24HoursOnly) {
+            allBranches = allBranches.filter(
+              (branch) => branch.is24hours === true
             );
           }
 

@@ -16,6 +16,8 @@ import {
 import { FilterSelect } from "@/components/ui/filter-select";
 import { SearchableSelect } from "@/components/ui/searchable-select";
 import { Pagination } from "@/components/ui/pagination";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import Image from "next/image";
 
 export default function StoresPage() {
@@ -41,9 +43,10 @@ export default function StoresPage() {
     imagesReady,
   } = useBranches();
 
-  const [selectedRegion, setSelectedRegion] = useState("");
-  const [selectedProvince, setSelectedProvince] = useState("");
-  const [selectedMunicipality, setSelectedMunicipality] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("all");
+  const [selectedProvince, setSelectedProvince] = useState("all");
+  const [selectedMunicipality, setSelectedMunicipality] = useState("all");
+  const [show24HoursOnly, setShow24HoursOnly] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
   const loadingStartRef = useRef<number | null>(null);
@@ -89,6 +92,7 @@ export default function StoresPage() {
       params.set("province", filters.province);
     if (filters.municipality && filters.municipality !== "all")
       params.set("municipality", filters.municipality);
+    if (filters.show24HoursOnly) params.set("24hours", "true");
     if (currentPage > 1) params.set("page", currentPage.toString());
 
     const newUrl = params.toString() ? `?${params.toString()}` : "/stores";
@@ -99,15 +103,22 @@ export default function StoresPage() {
   useEffect(() => {
     if (!isClient) return;
 
-    const region = searchParams.get("region") || "";
-    const province = searchParams.get("province") || "";
-    const municipality = searchParams.get("municipality") || "";
+    const region = searchParams.get("region") || "all";
+    const province = searchParams.get("province") || "all";
+    const municipality = searchParams.get("municipality") || "all";
+    const show24Hours = searchParams.get("24hours") === "true";
     const page = parseInt(searchParams.get("page") || "1");
 
     setSelectedRegion(region);
     setSelectedProvince(province);
     setSelectedMunicipality(municipality);
-    setFilters({ region, province, municipality });
+    setShow24HoursOnly(show24Hours);
+    setFilters({
+      region: region === "all" ? "" : region,
+      province: province === "all" ? "" : province,
+      municipality: municipality === "all" ? "" : municipality,
+      show24HoursOnly: show24Hours,
+    });
     setCurrentPage(page);
   }, [searchParams, setFilters, setCurrentPage, isClient]);
 
@@ -123,11 +134,17 @@ export default function StoresPage() {
         region: cleanRegion,
         province: "Metro Manila",
         municipality: "",
+        show24HoursOnly,
       });
     } else {
       setSelectedProvince("all"); // Reset province when region changes
       setSelectedMunicipality("all"); // Reset municipality when region changes
-      setFilters({ region: cleanRegion, province: "", municipality: "" });
+      setFilters({
+        region: cleanRegion,
+        province: "",
+        municipality: "",
+        show24HoursOnly,
+      });
     }
     setCurrentPage(1);
   };
@@ -140,6 +157,7 @@ export default function StoresPage() {
       region: selectedRegion === "all" ? "" : selectedRegion,
       province: cleanProvince,
       municipality: "",
+      show24HoursOnly,
     });
     setCurrentPage(1);
   };
@@ -151,6 +169,22 @@ export default function StoresPage() {
       region: selectedRegion === "all" ? "" : selectedRegion,
       province: selectedProvince === "all" ? "" : selectedProvince,
       municipality: cleanMunicipality,
+      show24HoursOnly,
+    });
+    setCurrentPage(1);
+  };
+
+  const handle24HoursToggle = (checked: boolean) => {
+    setShow24HoursOnly(checked);
+    const cleanRegion = selectedRegion === "all" ? "" : selectedRegion;
+    const cleanProvince = selectedProvince === "all" ? "" : selectedProvince;
+    const cleanMunicipality =
+      selectedMunicipality === "all" ? "" : selectedMunicipality;
+    setFilters({
+      region: cleanRegion,
+      province: cleanProvince,
+      municipality: cleanMunicipality,
+      show24HoursOnly: checked,
     });
     setCurrentPage(1);
   };
@@ -212,7 +246,7 @@ export default function StoresPage() {
                   Filter Locations
                 </h2>
               </div>
-              <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <SearchableSelect
                   value={selectedRegion}
                   onValueChange={handleRegionChange}
@@ -241,6 +275,19 @@ export default function StoresPage() {
                   options={municipalityOptions}
                   disabled={!selectedProvince || selectedProvince === "all"}
                 />
+              </div>
+              <div className="flex items-center space-x-3 pt-4 border-t">
+                <Switch
+                  id="24hours-filter"
+                  checked={show24HoursOnly}
+                  onCheckedChange={handle24HoursToggle}
+                />
+                <Label
+                  htmlFor="24hours-filter"
+                  className="text-sm font-medium cursor-pointer"
+                >
+                  Show only 24-hour stores
+                </Label>
               </div>
               {totalCount > 0 && (
                 <p className="text-sm text-muted-foreground mt-4">
@@ -325,16 +372,22 @@ export default function StoresPage() {
                                   {store.municipality}
                                 </p>
                               </div>
-                              <div className="flex items-start gap-3">
-                                <Clock className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                                <p className="text-muted-foreground">
-                                  {store.is24hours
-                                    ? "24 hours"
-                                    : store.timeslot
-                                    ? store.timeslot
-                                    : "Regular Hours"}
-                                </p>
-                              </div>
+                              {(store.is24hours ||
+                                (store.timeslot &&
+                                  !store.timeslot
+                                    .toLowerCase()
+                                    .includes("na"))) && (
+                                <div className="flex items-start gap-3">
+                                  <Clock className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                                  <p className="text-muted-foreground">
+                                    {store.is24hours
+                                      ? "24 hours"
+                                      : store.timeslot
+                                      ? store.timeslot
+                                      : "Regular Hours"}
+                                  </p>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </motion.div>
