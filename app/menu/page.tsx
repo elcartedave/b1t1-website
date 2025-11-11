@@ -419,12 +419,11 @@ export default function MenuPage() {
                 whileHover={{ y: -8, scale: 1.05 }}
                 className="group cursor-pointer-group"
               >
-                <div className="relative">
+                <div className="relative scale-95">
                   {/* Circular background glow */}
                   <div
-                    className="absolute inset-0"
                     style={{ background: "#C59D62" }}
-                    className="rounded-full blur-2xl scale-75 group-hover:scale-90 transition-transform duration-500"
+                    className="absolute inset-0 rounded-full blur-2xl scale-75 group-hover:scale-90 transition-transform duration-500"
                   />
                   {/* Circular product image */}
                   <div
